@@ -5,6 +5,7 @@ shinyUI(pageWithSidebar(
   # with "library(shiny)"
   # then change to that directory in R-studio 
   # and invoke the function "runApp()"
+  # or runGitHub("DataProdProject","MikeWise2718")
   #  
   headerPanel("Illustrating inputs"),
   sidebarPanel(
@@ -13,7 +14,8 @@ shinyUI(pageWithSidebar(
                        c("Value 1" = "1",
                          "Value 2" = "2",
                          "Value 3" = "3")),
-    dateInput("date", "Date:") 
+    dateInput("date", "Date:"),
+    sliderInput('mu', 'Guess at the mean',value = 70, min = 62, max = 74, step = 0.05,)
   ),
   mainPanel(
     h3('Illustrating outputs'),
@@ -22,6 +24,7 @@ shinyUI(pageWithSidebar(
     h4('You entered'),
     verbatimTextOutput("oid2"),
     h4('You entered'),
-    verbatimTextOutput("odate")
+    verbatimTextOutput("odate"),
+    plotOutput('newHist')
   )
 ))
